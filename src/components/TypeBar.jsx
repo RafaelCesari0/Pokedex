@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { apiFetch } from "../utils/api-fetch";
 
-export default function TypeBar() {
+export default function TypeBar({ setType }) {
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
@@ -13,13 +13,19 @@ export default function TypeBar() {
     setTypes(typesResponse.results);
   };
 
-  return (
-    <>
-      {types.map((type) => (
-        <p key={type.name}>{type.name}</p>
-      ))}
+  const click = (type) => {
+    setType(type);
+  }
 
-      <p>TypeBar</p>
-    </>
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
+      {
+        types.map((type) => (
+          <button onClick={() => click(type.name)} key={type.name} style={{ marginRight: "5px" }}>
+            {type.name}
+          </button>
+        ))
+      }
+    </div>
   );
 }
