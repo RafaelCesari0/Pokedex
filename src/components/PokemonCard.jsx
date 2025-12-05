@@ -26,7 +26,6 @@ export default function PokemonCard({ pokemon }) {
         fairy: "#D685AD",
     };
 
-
     useEffect(() => {
         load();
     }, []);
@@ -46,7 +45,6 @@ export default function PokemonCard({ pokemon }) {
             margin: "10px",
             backgroundColor: "#eee",
             padding: "20px",
-            borderRadius: "4px",
             width: "210px",
         }}>
             <p style={{ marginBottom: "20px", color: "#555" }}>{pokeInfo.paddedId}</p>
@@ -60,11 +58,10 @@ export default function PokemonCard({ pokemon }) {
                 backgroundColor: "#fff",
                 color: "#111",
                 padding: "4px 20px",
-                borderRadius: "4px"
             }}>{pokeInfo.name}</h1>
 
             <div style={{ display: "flex", flexDirection: "column", alignItems: "start", flexWrap: "wrap", width: "100%" }}>
-                <div style={{display: "flex"}}>
+                <div style={{ display: "flex" }}>
                     {pokeInfo.types.map(({ name }) => <p key={name} style={{
                         margin: "0 8px 8px 0",
                         textTransform: "capitalize",
