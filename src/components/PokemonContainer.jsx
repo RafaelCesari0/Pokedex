@@ -15,7 +15,7 @@ export default function PokemonContainer({ type }) {
     };
 
     return (
-        <div style={{ display: "flex", flexWrap: "wrap", margin: "10px" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", margin: "10px", justifyContent: "center" }}>
             {
                 pokemons.map(({ pokemon }) => {
                     return <PokemonCard key={pokemon.name} pokemon={pokemon} />

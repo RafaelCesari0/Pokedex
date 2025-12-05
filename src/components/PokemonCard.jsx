@@ -5,6 +5,28 @@ import { formatPokemonData } from "../utils/pokemon-helper";
 export default function PokemonCard({ pokemon }) {
     const [pokeInfo, setPokeInfo] = useState({ name: "", imgSrc: "", weight: "", height: "", types: [] });
 
+    const backgroundByType = {
+        water: "#6390F0",
+        normal: "#A8A77A",
+        fire: "#EE8130",
+        electric: "#F7D02C",
+        grass: "#7AC74C",
+        ice: "#96D9D6",
+        fighting: "#C22E28",
+        poison: "#A33EA1",
+        ground: "#E2BF65",
+        flying: "#A98FF3",
+        psychic: "#F95587",
+        bug: "#A6B91A",
+        rock: "#B6A136",
+        ghost: "#735797",
+        dragon: "#6F35FC",
+        dark: "#705746",
+        steel: "#B7B7CE",
+        fairy: "#D685AD",
+    };
+
+
     useEffect(() => {
         load();
     }, []);
@@ -25,11 +47,11 @@ export default function PokemonCard({ pokemon }) {
             backgroundColor: "#eee",
             padding: "20px",
             borderRadius: "4px",
-            width: "180px",
+            width: "210px",
         }}>
             <p style={{ marginBottom: "20px", color: "#555" }}>{pokeInfo.paddedId}</p>
 
-            <img src={pokeInfo.imgSrc} alt="foto pokemon" width={"100px"} height={"100px"}
+            <img src={pokeInfo.imgSrc} alt="foto pokemon" width={"150px"} height={"150px"}
                 style={{ marginBottom: "20px" }}
             />
             <h1 style={{
@@ -41,14 +63,19 @@ export default function PokemonCard({ pokemon }) {
                 borderRadius: "4px"
             }}>{pokeInfo.name}</h1>
 
-            <div style={{ display: "flex", justifyContent: "left", flexWrap: "wrap" }}>
-                {pokeInfo.types.map(({ name }) => <p key={name} style={{
-                    marginRight: "8px",
-                    textTransform: "capitalize"
-                }}>{name}</p>)}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "start", flexWrap: "wrap", width: "100%" }}>
+                <div style={{display: "flex"}}>
+                    {pokeInfo.types.map(({ name }) => <p key={name} style={{
+                        margin: "0 8px 8px 0",
+                        textTransform: "capitalize",
+                        color: "#fff",
+                        padding: "2px 8px",
+                        backgroundColor: backgroundByType[name],
+                    }}>{name}</p>)}
+                </div>
 
-                <p>Peso: {pokeInfo.weight}</p>
-                <p>Altura: {pokeInfo.height}</p>
+                <p style={{ marginBottom: "4px", color: "#555" }} >Peso: {pokeInfo.weight}</p>
+                <p style={{ marginBottom: "4px", color: "#555" }} >Altura: {pokeInfo.height}</p>
             </div>
         </div>
     )
