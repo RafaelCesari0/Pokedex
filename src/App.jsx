@@ -8,7 +8,14 @@ function App() {
 
   return (
     <>
-      <h1>Pokedex</h1>
+      <h1 style={{
+        fontSize: "2rem",
+        fontWeight: "normal",
+        margin: "40px 0",
+        backgroundColor: "#222",
+        color: "#fff",
+        padding: "20px"
+      }}>Pokedex</h1>
 
       <TypeBar setType={setType} />
       <PokemonContainer type={type} />
