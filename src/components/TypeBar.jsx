@@ -18,7 +18,7 @@ export default function TypeBar({ setType }) {
   }
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: "50px" }}>
+    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginBottom: "50px", }}>
       {
         types.map((type) => (
           <button onClick={() => click(type.name)} key={type.name} style={{
